@@ -32,7 +32,11 @@ const config =
 	{
 		listenIp   : '0.0.0.0',
 		// NOTE: Don't change listenPort (client app assumes 4443).
-		listenPort : process.env.ADMIN_LISTEN_PORT || 7000
+		listenPort : process.env.ADMIN_LISTEN_PORT || 7000,
+        tls : {
+            cert: process.env.HTTPS_CERT_FULLCHAIN || `${__dirname}/certs/fullchain.pem`,
+            key: process.env.HTTPS_CERT_PRIVKEY || `${__dirname}/certs/privkey.pem`
+        }
 	},
 	// mediasoup settings.
 	mediasoup :

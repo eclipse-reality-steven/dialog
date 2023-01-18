@@ -291,7 +291,7 @@ async function runHttpsServer()
 	// TODO remove, alt server needed to spoof janus API.
 	logger.info('running an Admin HTTP server...');
 
-	adminHttpServer = http.createServer(expressAdminApp);
+	adminHttpServer = https.createServer(tls, expressAdminApp);
 
 	await new Promise((resolve) =>
 	{
